@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --cor01: #4abe10;
+  --cor02: #44bd18;
+  --cor03: #fffffb;
+  --cor04: #00d732;
+  --cor05: #000000;
+  --cor06: #EDEBE9;
+}
+html{
+    font-size: 63%;
+}
+body{
+    background-color: var(--cor03);
+    font: bold 2rem 'arial';
+}
+.todo{
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 15px;
+}
+.todo-title{
+    display: flex;
+    background-color: var(--cor04);
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    justify-content: center;
+    margin-top: 50px;
+    box-shadow: 1px 1px 5px var(--cor05);
+    font-size: 3rem;
+    color: var(--cor03) ;  
+}
+.todo-list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.todo-item{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px var(--cor05);
+}
+.todo-item > div{
+    width: 80%;
+    word-wrap: break-word;
+}
+.todo-item:hover{
+    cursor: pointer;
+    transition: all .5s ease;
+    background-color: var(--cor06);
+}
+.todo-item > input[type='checkbox']:checked + div {
+    text-decoration: line-through;
+}
+.todo-new-item{
+    display: flex;
+    background-color: var(--cor06);
+    width: 100%;
+    height: 70px;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    box-shadow: 1px 1px 5px var(--cor05);
+    margin: 10px;
+    font: inherit;
+    align-items: center;
+}
+.todo-new-item > input {
+    background-color: var(--cor06);
+    border: none;
+    width: 80%;
+    outline: none;
+    font: inherit;
+}
+.todo-new-item >input::placeholder{
+    font-style: italic;
+    font-weight: normal;
+}
+#deletar:hover{
+    transform: rotate(5deg);
+}
+#deletar:active{
+    transform: scale(0.89);
+    
+}
+
