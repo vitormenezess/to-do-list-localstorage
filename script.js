@@ -2,11 +2,9 @@
 const plus = document.getElementById("plus");
 const txt = document.getElementById("novoItem");
 
-let banco = [
-  { tarefa: "Estudar", status: "" },
-  { tarefa: "netflix", status: "checked" },
-  { tarefa: "teste", status: "checked" },
-];
+const getBanco = () => JSON.parse(localStorage.getItem("todoList")) ?? [];
+const setBanco = (banco) =>
+  localStorage.setItem("todoList", JSON.stringify(banco));
 
 function criarItem(tarefa, status, indice) {
   //criar elememto no html
@@ -35,6 +33,7 @@ const limparTarefas = () => {
 
 const atualizarTela = () => {
   limparTarefas();
+  const banco = getBanco();
   banco.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));
 };
 
@@ -48,9 +47,11 @@ const tarefaValida = (texto) => {
 };
 
 const inserirItem = (evento) => {
+  const banco = getBanco();
   if (evento.key == "Enter") {
     if (tarefaValida(txt.value)) {
       banco.push({ tarefa: evento.target.value, status: "" });
+      setBanco(banco);
       atualizarTela();
       txt.value = "";
     }
@@ -58,17 +59,22 @@ const inserirItem = (evento) => {
   if (evento.type == "click") {
     if (tarefaValida(txt.value)) {
       banco.push({ tarefa: txt.value, status: "" });
+      setBanco(banco);
       atualizarTela();
       txt.value = "";
     }
   }
 };
 const deletarItem = (indice) => {
+  const banco = getBanco();
   banco.splice(indice, 1);
+  setBanco(banco);
   atualizarTela();
 };
 const atualizarItem = (indice) => {
+  const banco = getBanco();
   banco[indice].status = banco[indice].status === "" ? "checked" : "";
+  setBanco(banco)
   atualizarTela();
 };
 
