@@ -41,6 +41,7 @@ body{
 .todo-list{
     display: flex;
     width: 100%;
+    font: normal 2rem 'arial';
     flex-direction: column;
     gap: 10px;
     
@@ -53,6 +54,7 @@ body{
     padding: 5px;
     justify-content: space-between;
     box-shadow: 1px 1px 5px var(--cor05);
+    padding-left: 10px;
 }
 .todo-item > div{
     width: 80%;
@@ -65,6 +67,7 @@ body{
 }
 .todo-item > input[type='checkbox']:checked + div {
     text-decoration: line-through;
+
 }
 .todo-new-item{
     display: flex;
